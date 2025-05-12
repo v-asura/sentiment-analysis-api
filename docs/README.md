@@ -73,4 +73,4 @@ MkDocs port conflict: Use mkdocs serve --dev-addr=127.0.0.1:8001
 📜 License
 MIT License. See LICENSE for details.
 
-Built with ❤️ by v-asura
+Built by v-asura
