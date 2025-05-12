@@ -1,4 +1,14 @@
 site_name: Sentiment Analysis API
-# 
+#
 site_author: SAU RAV
-# 
+#
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Setup: setup.md
+  - Configuration: configuration.md
+  - Development Notes: development.md
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
