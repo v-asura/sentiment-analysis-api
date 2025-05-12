@@ -2,10 +2,10 @@
 
 Use [mkdocs](http://www.mkdocs.org/) structure to update the documentation.
 
-Build locally with:
+##Build locally with:
 
 mkdocs build
 
-Serve locally with:
+##Serve locally with:
 cd docs
 mkdocs serve
