@@ -9,7 +9,7 @@ copyright: © 2025 v-asura
 
 theme:
   name: material
-  custom_dir: docs/overrides
+  # custom_dir: docs/overrides  # Uncomment if using overrides
   color_mode: auto
   user_color_mode_toggle: true
   icon:
@@ -35,16 +35,15 @@ theme:
     - search.share
     - search.suggest
 
-extra_css:
-  - custom.css # Create a custom.css file in overrides/assets/css/ if needed
-
 markdown_extensions:
   - tables
   - attr_list
   - admonition
   - def_list
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences # Enables tabbed content
+  - pymdownx.tabbed: # Explicitly enable tabbed extension
+      alternate_style: true
   - pymdownx.snippets
   - pymdownx.inlinehilite
   - pymdownx.highlight:
@@ -58,7 +57,6 @@ markdown_extensions:
 plugins:
   - search
   - git-revision-date-localized
-  # - social
 
 nav:
   - Home: index.md

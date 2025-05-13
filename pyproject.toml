@@ -13,6 +13,9 @@ dependencies = [
     "pre-commit==3.8.0",
     "httpx==0.27.2",
     "requests==2.32.3",
+    "mkdocs==1.6.1",
+    "mkdocs-material==9.6.13",
+    "mkdocs-git-revision-date-localized-plugin",
 ]
 
 [tool.pytest]
