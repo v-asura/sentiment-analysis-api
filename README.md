@@ -38,23 +38,25 @@ cd sentiment-analysis-api
 === "Local Setup"
 
 1. **Create and Activate Virtual Environment**:
-   `bash
+   ```bash
     python -m venv .venv
     source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-    `
+   ```
 2. **Install Dependencies**:
-   `bash
+   ```bash
     pip install -r requirements.txt
-    `
+   ```
 3. **Launch the API**:
-   `bash
+   ```bash
     uvicorn sentiment_analysis_api.main:app --host 0.0.0.0 --port 8000 --reload
-    ` 4. **Access the API**: - Open [http://localhost:8000/docs](http://localhost:8000/docs). - Test: `{"text": "This is a fact."}` → `{"text": "This is a fact.", "sentiment": "neutral"}`.
+   ```
+4. **Access the API**: - Open [http://localhost:8000/docs](http://localhost:8000/docs). - Test: `{"text": "This is a fact."}` → `{"text": "This is a fact.", "sentiment": "neutral"}`.
 
 === "Run Tests"
-`bash
-    python -m pytest sentiment_analysis_api/tests/ --cov=sentiment_analysis_api
-    `
+
+```bash
+  python -m pytest sentiment_analysis_api/tests/ --cov=sentiment_analysis_api
+```
 
 ### 3. Run with Docker 🐳
 
