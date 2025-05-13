@@ -107,7 +107,7 @@ GitHub Actions (.github/workflows/ci.yml) automates linting, testing, and Docker
 📽️ Screen Recording
 Watch a short demo of the API, tests, CI workflow, and MkDocs documentation:
 
-Insert Link Here (Replace with the actual link after uploading)
+-[watch demo] (https://drive.google.com/drive/folders/1lYoIS0iB0HmYy4RHW9QI288zdy0CJ7lu?usp=share_link)
 
 🛠️ Development Notes
 
@@ -133,4 +133,4 @@ MkDocs port conflict: Use mkdocs serve --dev-addr=127.0.0.1:8001
 📜 License
 MIT License. See LICENSE for details.
 
-Built with ❤️ by v-asura
+Built by v-asura

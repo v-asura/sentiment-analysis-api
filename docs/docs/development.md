@@ -11,7 +11,7 @@
 
 A short video demonstrating the app, tests, and CI workflow is available at:
 
-- [Insert Link Here](#) _(Replace with the actual link after uploading)_
+- [Watch Demo](#) \_(https://drive.google.com/drive/folders/1lYoIS0iB0HmYy4RHW9QI288zdy0CJ7lu?usp=share_link)
 
 ## License
 
