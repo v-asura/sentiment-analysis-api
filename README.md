@@ -1,136 +1,137 @@
-Sentiment Analysis API 🎉
+# Sentiment Analysis API 🎉
 
-📖 Overview
-The Sentiment Analysis API is a modern, lightweight microservice built with FastAPI that analyzes text sentiment, classifying it as positive 😊, negative 😔, or neutral 😐. Powered by the TextBlob library, it’s structured using the Cookiecutter Data Science (CCDS) v2.6.0 template, with pytest for robust testing, ruff for code quality, and Docker for seamless deployment.
+_Elegant documentation powered by MkDocs and Material for MkDocs 🌟_
 
-✨ Features
+## 📖 Overview
 
-🚀 API Endpoint: POST /api/v1/sentiment processes JSON input (e.g., {"text": "I love this product!"}) and returns sentiment (e.g., {"text": "I love this product!", "sentiment": "positive"}).
-🧪 Testing: Comprehensive pytest suite with 90%+ code coverage.
-🔄 CI/CD: Automated GitHub Actions workflow for linting, testing, and Docker builds.
-🐳 Containerization: Docker support for easy, portable deployment.
-📝 Documentation: Elegant MkDocs-based docs, previewable locally.
+The **Sentiment Analysis API** is a modern FastAPI microservice that analyzes text sentiment, classifying it as **positive 😊**, **negative 😔**, or **neutral 😐**. Built with `TextBlob` and structured using the **Cookiecutter Data Science (CCDS) v2.6.0** template, it features **pytest** for testing, **ruff** for linting, and **Docker** for deployment.
 
-🛠 Prerequisites
-Before you begin, ensure you have:
+!!! note "Project Goal"
+This project applies the 12-Factor Principles to create a functional, scalable sentiment analysis tool.
 
-Python 3.11 🐍
-Git 📂 (to clone the repository)
-Virtualenv 🧑‍💻 (for dependency management)
-Docker 🐳 (optional, for containerized deployment)
+## ✨ Features
 
-🚀 Quick Start
+- 🚀 **API Endpoint**: `POST /api/v1/sentiment` (e.g., `{"text": "I love this product!"}` → `{"text": "I love this product!", "sentiment": "positive"}`).
+- 🧪 **Testing**: Pytest with **90%+ code coverage**.
+- 🔄 **CI/CD**: GitHub Actions for automated workflows.
+- 🐳 **Containerization**: Docker support.
+- 📝 **Documentation**: Interactive MkDocs site.
 
-1. Clone the Repository
-   git clone https://github.com/v-asura/sentiment-analysis-api.git
-   cd sentiment-analysis-api
+## 🛠 Prerequisites
 
-2. Run Locally 🖥️
+- **Python 3.11** 🐍
+- **Git** 📂
+- **Virtualenv** 🧑‍💻
+- **Docker** 🐳 (optional)
 
-Set Up a Virtual Environment:
-python -m venv .venv
-source .venv/bin/activate # On Windows: .venv\Scripts\activate
+## 🚀 Quick Start
 
-Install Dependencies:
-pip install -r requirements.txt
+### 1. Clone the Repository
 
-Launch the API:
-uvicorn sentiment_analysis_api.main:app --host 0.0.0.0 --port 8000 --reload
+```bash
+git clone https://github.com/v-asura/sentiment-analysis-api.git
+cd sentiment-analysis-api
+```
 
-Access the API:
+### 2. Run Locally 🖥️
 
-Visit http://localhost:8000/docs for the interactive Swagger UI.
-Test the POST /api/v1/sentiment endpoint:{"text": "This is a fact."}
+=== "Local Setup" 1. **Create and Activate Virtual Environment**:
+`bash
+       python -m venv .venv
+       source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+       ` 2. **Install Dependencies**:
+`bash
+       pip install -r requirements.txt
+       ` 3. **Launch the API**:
+`bash
+       uvicorn sentiment_analysis_api.main:app --host 0.0.0.0 --port 8000 --reload
+       ` 4. **Access the API**: - Open [http://localhost:8000/docs](http://localhost:8000/docs). - Test: `{"text": "This is a fact."}` → `{"text": "This is a fact.", "sentiment": "neutral"}`.
 
-Expected Response:{"text": "This is a fact.", "sentiment": "neutral"}
+=== "Run Tests"
+`bash
+    python -m pytest sentiment_analysis_api/tests/ --cov=sentiment_analysis_api
+    `
 
-Run Tests:
-python -m pytest sentiment_analysis_api/tests/ --cov=sentiment_analysis_api
+### 3. Run with Docker 🐳
 
-3. Run with Docker 🐳
+1. **Build the Docker Image**:
+   ```bash
+   docker build -t sentiment-api .
+   ```
+2. **Run the Container**:
+   ```bash
+   docker run -p 8000:8000 sentiment-api
+   ```
+3. **Access the API**:
+   - Open [http://localhost:8000/docs](http://localhost:8000/docs) and test as above.
+4. **Stop the Container**:
+   ```bash
+   docker ps -q | xargs docker stop
+   ```
 
-Build the Docker Image:
-docker build -t sentiment-api .
+### 4. Preview Documentation 📚
 
-Run the Container:
-docker run -p 8000:8000 sentiment-api
+1. **Install MkDocs**:
+   ```bash
+   pip install mkdocs==1.6.1 mkdocs-material==10.0.0
+   ```
+2. **Run MkDocs Server**:
+   ```bash
+   mkdocs serve
+   ```
+   - Open [http://127.0.0.1:8000](http://127.0.0.1:8000) (use `127.0.0.1:8001` if port 8000 is in use).
+   - Stop with `Ctrl+C`.
 
-Access the API:
+## ⚙️ Configuration
 
-Open http://localhost:8000/docs and test as above.
+- **Environment Variables** 🌍:
+  - Defaults in `sentiment_analysis_api/core/config.py`:
+    ```python
+    APP_NAME = "Sentiment Analysis API"
+    DEBUG = False
+    PORT = 8000
+    LOG_LEVEL = "INFO"
+    ```
+  - Override in `.env`:
+    ```bash
+    echo "PORT=8080" > .env
+    ```
+- **Dependencies**: `requirements.txt` includes `fastapi==0.115.0`, `textblob==0.18.0.post0`, etc.
+- **Linting** 🧹:
+  ```bash
+  ruff check sentiment_analysis_api/
+  ```
 
-Stop the Container:
-docker ps -q | xargs docker stop
+## 📽️ Screen Recording
 
-4. Preview Documentation with MkDocs 📚
-
-Install MkDocs (if not already in requirements.txt):
-pip install mkdocs==1.6.1 mkdocs-material==10.0.0
-
-Run MkDocs Server:
-mkdocs serve
-
-Open http://127.0.0.1:8000 to preview the docs.
-If port 8000 is in use, try:mkdocs serve --dev-addr=127.0.0.1:8001
-
-Stop the Server:
-
-Press Ctrl+C in the terminal.
-
-⚙️ Configuration
-
-Environment Variables 🌍:
-
-The API uses a .env file for settings. Defaults are in sentiment_analysis_api/core/config.py:APP_NAME = "Sentiment Analysis API"
-DEBUG = False
-PORT = 8000
-LOG_LEVEL = "INFO"
-
-Override defaults by creating a .env file:echo "PORT=8080" > .env
-
-Key Dependencies 📦:
-
-fastapi==0.115.0
-textblob==0.18.0.post0
-pytest==8.3.3
-ruff==0.6.8
-mkdocs==1.6.1
-mkdocs-material==10.0.0
-
-Linting 🧹:
-ruff check sentiment_analysis_api/
-
-CI/CD 🔄:
-
-GitHub Actions (.github/workflows/ci.yml) automates linting, testing, and Docker builds.
-
-📽️ Screen Recording
 Watch a short demo of the API, tests, CI workflow, and MkDocs documentation:
 
--[watch demo] (https://drive.google.com/drive/folders/1lYoIS0iB0HmYy4RHW9QI288zdy0CJ7lu?usp=share_link)
+- [Watch Demo and Screenshots](https://drive.google.com/drive/folders/1lYoIS0iB0HmYy4RHW9QI288zdy0CJ7lu?usp=share_link)
 
-🛠️ Development Notes
+## 📸 Screenshots
 
-Project Structure 🗂️:
+Explore key components:
 
-Follows CCDS v2.6.0:
-sentiment_analysis_api/: Core code
-tests/: Pytest suite
-docs/: MkDocs documentation
-data/: Datasets (if any)
+- [Project Structure](screenshots/project_structure.png)
+- [Main API Code](screenshots/main_py.png)
+- [API Routes](screenshots/routes_py.png)
+- [Tests](screenshots/test_routes_py.png)
+- [MkDocs Documentation](screenshots/mkdocs_home.png)
+- [CI Workflow](screenshots/ci_workflow.png)
 
-Testing 🧪:
+## 🛠️ Development Notes
 
-Tests in sentiment_analysis_api/tests/test_routes.py cover positive, negative, and neutral sentiments.
+- **Structure**: Follows CCDS v2.6.0 with `sentiment_analysis_api/`, `tests/`, and `docs/`.
+- **Troubleshooting** 🔍:
+  - Verify Python 3.11: `python --version`
+  - Check `httpx==0.27.2`: `pip show httpx`
+  - Test Docker: `docker run hello-world`
 
-Troubleshooting 🔍:
+## 📜 License
 
-Verify Python 3.11: python --version
-Check httpx==0.27.2: pip show httpx
-Test Docker: docker run hello-world
-MkDocs port conflict: Use mkdocs serve --dev-addr=127.0.0.1:8001
+MIT License. See [LICENSE](LICENSE) for details.
 
-📜 License
-MIT License. See LICENSE for details.
+---
 
-Built by v-asura
+_Built by v-asura_  
+_Last Updated: May 13, 2025_
