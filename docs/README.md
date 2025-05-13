@@ -35,15 +35,19 @@ cd sentiment-analysis-api
 
 ### 2. Run Locally 🖥️
 
-=== "Local Setup" 1. **Create and Activate Virtual Environment**:
-`bash
+=== "Local Setup"
+
+1. **Create and Activate Virtual Environment**:
+   `bash
        python -m venv .venv
        source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-       ` 2. **Install Dependencies**:
-`bash
+       `
+2. **Install Dependencies**:
+   `bash
        pip install -r requirements.txt
-       ` 3. **Launch the API**:
-`bash
+       `
+3. **Launch the API**:
+   `bash
        uvicorn sentiment_analysis_api.main:app --host 0.0.0.0 --port 8000 --reload
        ` 4. **Access the API**: - Open [http://localhost:8000/docs](http://localhost:8000/docs). - Test: `{"text": "This is a fact."}` → `{"text": "This is a fact.", "sentiment": "neutral"}`.
 
